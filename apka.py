@@ -4,6 +4,7 @@ import przegladanie
 import os
 import pandas as pd
 
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -48,6 +49,35 @@ class Ui_MainWindow(object):
 "}\n"
 "")
         self.comboBox.setObjectName("comboBox")
+
+        self.comboBox_dysk = QtWidgets.QComboBox(self.centralwidget)
+        self.comboBox_dysk.setGeometry(QtCore.QRect(700, 20, 50, 30))
+        self.comboBox_dysk.setStyleSheet("QComboBox{\n"
+                                    "background-color: rgb(75, 255, 249);\n"
+                                    "}\n"
+                                    "QComboBox:hover{\n"
+                                    "background-color: rgb(75, 255, 249);\n"
+                                    "border: 2px solid rgb(255,0,0);\n"
+                                    "font-size:16px;\n"
+                                    "}\n"
+                                    "")
+        self.comboBox_dysk.setObjectName("comboBox_dysk")
+        
+
+        self.pushButton_dysk = QtWidgets.QPushButton(self.centralwidget,
+                                                     clicked=lambda: self.zmiana_dysku(self.comboBox_dysk.currentText()))
+        self.pushButton_dysk.setGeometry(QtCore.QRect(700, 60, 50, 30))
+        self.pushButton_dysk.setStyleSheet("QPushButton{\n"
+                                         "background-color: rgb(75, 255, 249);\n"
+                                         "}\n"
+                                         "QPushButton:hover{\n"
+                                         "background-color: rgb(75, 255, 249);\n"
+                                         "border: 2px solid rgb(255,0,0);\n"
+                                         "font-size:16px;\n"
+                                         "}\n"
+                                         "")
+        self.pushButton_dysk.setObjectName("pushButton_dysk")
+
 
         self.pushButton_3 = QtWidgets.QPushButton(self.centralwidget,
                                                   clicked=lambda: self.przejdz_do_folderu(self.comboBox.currentText()))
@@ -159,7 +189,7 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def combo(self, sciezka  ):
-        sciezka_ = os.path.abspath( self.comboBox.currentText() )
+        # sciezka_ = os.path.abspath( self.comboBox.currentText() )
         return self.comboBox.addItems( przegladanie.folder(sciezka)[0])
 
     def pokaz1(self, pressed ): # NIE PRZEKAZUJE CALEJ SCIEZKI !!!!!!!
@@ -190,6 +220,13 @@ class Ui_MainWindow(object):
             self.lcdNumber.display(przegladanie.policz_foldery(self.label.text()))
             self.lcdNumber_2.display(przegladanie.policz_pliki(self.label.text()))
 
+    def zmiana_dysku(self, pressed):
+        # print( przegladanie.folder( pressed ))
+        # self.comboBox.addItems( przegladanie.folder('C:\\')[0])
+        print(  przegladanie.folder(self.comboBox_dysk.currentText())[0])
+        self.przejdz_do_folderu(pressed)
+        
+
     def lcd1(self,sciezka):
         print( przegladanie.policz_foldery( sciezka ) )
     def lcd2(self,sciezka):
@@ -210,6 +247,8 @@ class Ui_MainWindow(object):
         self.lcdNumber.display( przegladanie.policz_foldery( self.label.text() ) )
         self.lcdNumber_2.display( przegladanie.policz_pliki( self.label.text() ) )
         self.lcdNumber_3.display( 0 )
+        self.comboBox_dysk.addItems(przegladanie.get_disks())
+        self.pushButton_dysk.setText(_translate("MainWindow", "dysk"))
 
 
 if __name__ == "__main__":
