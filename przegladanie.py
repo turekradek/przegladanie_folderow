@@ -1,6 +1,7 @@
 import os
+import pandas as pd
 
-def folder( sciezka ):
+def folder( sciezka = os.getcwd() ):
 
     obiekty = os.listdir(sciezka)
     obiekty.insert(0,".\\")
@@ -14,7 +15,6 @@ def trescfolderu( sciezka ):
     return obiekty
 
 def trescpliku( sciezka ):
-    print( sciezka )
     with open( sciezka ,'r') as plik:
         tresc = plik.read()
     return tresc
@@ -32,8 +32,3 @@ def zapis_do_pliku(plik, tekst):
     file.write(tekst + '\n')
     file.close()
 
-
-
-
-# print( policz_pliki(r'E:\!!!!__programowanie__\!!!___git_projekty\!portfolio\przegladanie_folderow'))
-print( policz_foldery(r'E:\!!!!__programowanie__\!!!___git_projekty\!portfolio\przegladanie_folderow\a'))
