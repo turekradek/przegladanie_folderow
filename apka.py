@@ -3,12 +3,14 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import przegladanie
 import os
 import pandas as pd
+import znajdz_puste_foldery
 
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
+
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
@@ -78,7 +80,170 @@ class Ui_MainWindow(object):
                                          "")
         self.pushButton_dysk.setObjectName("pushButton_dysk")
 
+        # ############### przyciski
+        self.pushButton_4 = QtWidgets.QPushButton(self.centralwidget,
+                                                  clicked=lambda: self.duplikaty() )
+        self.pushButton_4.setGeometry(QtCore.QRect(40, 480, 84, 35))
+        self.pushButton_4.setStyleSheet("QPushButton{\n"
+                                        "    text-decoration: underline;\n"
+                                        "    font: 75 8pt \"MS Shell Dlg 2\";\n"
+                                        "background-color: rgb(75, 255, 249);\n"
+                                        "font-size: 18px;\n"
+                                        "}\n"
+                                        "QPushButton:hover{\n"
+                                        "background-color: rgb(255, 25, 29);\n"
+                                        "border: 2px solid rgb(255,0,0);\n"
+                                        "font-size: 20px;\n"
+                                        "}\n"
+                                        "")
+        self.pushButton_4.setObjectName("pushButton_4")
 
+        self.label_4 = QtWidgets.QLabel(self.centralwidget)
+        self.label_4.setGeometry(QtCore.QRect(40, 520, 84, 35))
+        self.label_4.setStyleSheet("QLabel{\n"
+                                   "alignment: center;\n"
+                                   "font: 75 8pt \"MS Shell Dlg 2\";\n"
+                                   "background-color: rgb(75, 255, 249);\n"
+                                   "font-size: 18px;\n"
+                                   "}\n"
+                                   "QLabel:hover{\n"
+                                   "background-color: rgb(255, 25, 29);\n"
+                                   "border: 2px solid rgb(255,0,0);\n"
+                                   "font-size: 20px;\n"
+                                   "}\n"
+                                   "")
+        self.label_4.setObjectName("label_4")
+
+        self.pushButton_5 = QtWidgets.QPushButton(self.centralwidget, clicked=lambda: self.kopia_w_nazwie(self.label.text()))
+        self.pushButton_5.setGeometry(QtCore.QRect(129, 480, 84, 35))
+        self.pushButton_5.setStyleSheet("QPushButton{\n"
+                                        "    text-decoration: underline;\n"
+                                        "    font: 75 8pt \"MS Shell Dlg 2\";\n"
+                                        "background-color: rgb(75, 255, 249);\n"
+                                        "font-size: 18px;\n"
+                                        "}\n"
+                                        "QPushButton:hover{\n"
+                                        "background-color: rgb(255, 25, 29);\n"
+                                        "border: 2px solid rgb(255,0,0);\n"
+                                        "font-size: 20px;\n"
+                                        "}\n"
+                                        "")
+        self.pushButton_5.setObjectName("pushButton_5")
+
+        self.label_5 = QtWidgets.QLabel(self.centralwidget)
+        self.label_5.setGeometry(QtCore.QRect(129, 520, 84, 35))
+        self.label_5.setStyleSheet("QLabel{\n"
+                                   # "    text-decoration: underline;\n"
+                                   "    font: 75 8pt \"MS Shell Dlg 2\";\n"
+                                   "background-color: rgb(75, 255, 249);\n"
+                                   "font-size: 18px;\n"
+                                   "}\n"
+                                   "QLabel:hover{\n"
+                                   "background-color: rgb(255, 25, 29);\n"
+                                   "border: 2px solid rgb(255,0,0);\n"
+                                   "font-size: 20px;\n"
+                                   "}\n"
+                                   "")
+        self.label_5.setObjectName("label_5")
+
+        self.pushButton_6 = QtWidgets.QPushButton(self.centralwidget,
+                                                  clicked= lambda: self.puste_foldery(self.label.text()))
+        self.pushButton_6.setGeometry(QtCore.QRect(218, 480, 84, 35))
+        self.pushButton_6.setStyleSheet("QPushButton{\n"
+                                        "    text-decoration: underline;\n"
+                                        "    font: 75 8pt \"MS Shell Dlg 2\";\n"
+                                        "background-color: rgb(75, 255, 249);\n"
+                                        "font-size: 14px;\n"
+                                        "}\n"
+                                        "QPushButton:hover{\n"
+                                        "background-color: rgb(255, 25, 29);\n"
+                                        "border: 2px solid rgb(255,0,0);\n"
+                                        "font-size: 16px;\n"
+                                        "}\n"
+                                        "")
+        self.pushButton_6.setObjectName("pushButton_6")
+
+        self.label_6 = QtWidgets.QLabel(self.centralwidget)
+        self.label_6.setGeometry(QtCore.QRect(218, 520, 84, 35))
+        self.label_6.setStyleSheet("QLabel{\n"
+                                   "    text-decoration: underline;\n"
+                                   "    font: 75 8pt \"MS Shell Dlg 2\";\n"
+                                   "background-color: rgb(75, 255, 249);\n"
+                                   "font-size: 18px;\n"
+                                   "}\n"
+                                   "QLabel:hover{\n"
+                                   "background-color: rgb(255, 25, 29);\n"
+                                   "border: 2px solid rgb(255,0,0);\n"
+                                   "font-size: 20px;\n"
+                                   "}\n"
+                                   "")
+        self.label_6.setObjectName("label_6")
+
+        self.pushButton_7 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_7.setGeometry(QtCore.QRect(307, 480, 84, 35))
+        self.pushButton_7.setStyleSheet("QPushButton{\n"
+                                        "    text-decoration: underline;\n"
+                                        "    font: 75 8pt \"MS Shell Dlg 2\";\n"
+                                        "background-color: rgb(75, 255, 249);\n"
+                                        "font-size: 18px;\n"
+                                        "}\n"
+                                        "QPushButton:hover{\n"
+                                        "background-color: rgb(255, 25, 29);\n"
+                                        "border: 2px solid rgb(255,0,0);\n"
+                                        "font-size: 20px;\n"
+                                        "}\n"
+                                        "")
+        self.pushButton_7.setObjectName("pushButton_7")
+
+        self.label_7 = QtWidgets.QLabel(self.centralwidget)
+        self.label_7.setGeometry(QtCore.QRect(307, 520, 84, 35))
+        self.label_7.setStyleSheet("QLabel{\n"
+                                   "    text-decoration: underline;\n"
+                                   "    font: 75 8pt \"MS Shell Dlg 2\";\n"
+                                   "background-color: rgb(75, 255, 249);\n"
+                                   "font-size: 18px;\n"
+                                   "}\n"
+                                   "QLabel:hover{\n"
+                                   "background-color: rgb(255, 25, 29);\n"
+                                   "border: 2px solid rgb(255,0,0);\n"
+                                   "font-size: 20px;\n"
+                                   "}\n"
+                                   "")
+        self.label_7.setObjectName("label_7")
+
+        self.pushButton_8 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_8.setGeometry(QtCore.QRect(396, 480, 84, 35))
+        self.pushButton_8.setStyleSheet("QPushButton{\n"
+                                        "    text-decoration: underline;\n"
+                                        "    font: 75 8pt \"MS Shell Dlg 2\";\n"
+                                        "background-color: rgb(75, 255, 249);\n"
+                                        "font-size: 18px;\n"
+                                        "}\n"
+                                        "QPushButton:hover{\n"
+                                        "background-color: rgb(255, 25, 29);\n"
+                                        "border: 2px solid rgb(255,0,0);\n"
+                                        "font-size: 20px;\n"
+                                        "}\n"
+                                        "")
+        self.pushButton_8.setObjectName("pushButton_8")
+
+        self.label_8 = QtWidgets.QLabel(self.centralwidget)
+        self.label_8.setGeometry(QtCore.QRect(396, 520, 84, 35))
+        self.label_8.setStyleSheet("QLabel{\n"
+                                   "    text-decoration: underline;\n"
+                                   "    font: 75 8pt \"MS Shell Dlg 2\";\n"
+                                   "background-color: rgb(75, 255, 249);\n"
+                                   "font-size: 18px;\n"
+                                   "}\n"
+                                   "QLabel:hover{\n"
+                                   "background-color: rgb(255, 25, 29);\n"
+                                   "border: 2px solid rgb(255,0,0);\n"
+                                   "font-size: 20px;\n"
+                                   "}\n"
+                                   "")
+        self.label_8.setObjectName("label_8")
+
+        #########################################################
         self.pushButton_3 = QtWidgets.QPushButton(self.centralwidget,
                                                   clicked=lambda: self.przejdz_do_folderu(self.comboBox.currentText()))
         self.pushButton_3.setGeometry(QtCore.QRect(490, 120, 150, 41))
@@ -188,6 +353,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+
     def combo(self, sciezka  ):
         # sciezka_ = os.path.abspath( self.comboBox.currentText() )
         return self.comboBox.addItems( przegladanie.folder(sciezka)[0])
@@ -200,7 +366,8 @@ class Ui_MainWindow(object):
             self.textBrowser.setText( przegladanie.trescpliku(self.comboBox.currentText()))
 
     def gdzie_jestem(self, sciezka = os.getcwd()):
-        return sciezka 
+        return sciezka
+
 
     def przejdz_do_folderu(self,pressed ):
         if os.path.isdir( self.comboBox.currentText() ) and pressed == '.\\':
@@ -221,11 +388,31 @@ class Ui_MainWindow(object):
             self.lcdNumber_2.display(przegladanie.policz_pliki(self.label.text()))
 
     def zmiana_dysku(self, pressed):
-        # print( przegladanie.folder( pressed ))
-        # self.comboBox.addItems( przegladanie.folder('C:\\')[0])
         print(  przegladanie.folder(self.comboBox_dysk.currentText())[0])
         self.przejdz_do_folderu(pressed)
         
+    def duplikaty(self):
+        self.textBrowser.setText(f'duplikaty\n , {self.label.currency()}')
+        self.duplikaty_do_pliku()
+
+    def duplikaty_do_pliku(self):
+        pass
+        # self.textBrowser.setText(' duplikaty do pliku ')
+
+    def kopia_w_nazwie(self,pressed):
+        print( f'pliki z - kopia w nazwie ')
+        print( pressed )
+        przegladanie.szukaj_kopia(pressed)
+
+    def kopia_do_pliku(self):
+        print(f'pliki z - kopia w nazwie do pliku ')
+
+    def puste_foldery(self, pressed):
+        lista_pustych_folderow = znajdz_puste_foldery.folder(pressed)
+        self.textBrowser.setText('ma pokazac puste foldery najlepiej z pliku puste_foldery.txt')
+        # DORABIANIE SKASOWANIA PLIKU puste_foldery.txt jeśli istnieje
+        print( lista_pustych_folderow)
+        print( f'puste foldery znajdz_puste_foldery.folder(pressed){pressed}')
 
     def lcd1(self,sciezka):
         print( przegladanie.policz_foldery( sciezka ) )
@@ -233,7 +420,6 @@ class Ui_MainWindow(object):
         print( przegladanie.policz_pliki( sciezka ) )
     def lcd3(self,sciezka):
         pass
-
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -249,6 +435,16 @@ class Ui_MainWindow(object):
         self.lcdNumber_3.display( 0 )
         self.comboBox_dysk.addItems(przegladanie.get_disks())
         self.pushButton_dysk.setText(_translate("MainWindow", "dysk"))
+        self.pushButton_4.setText(_translate("MainWindow", "duplikaty"))
+        self.label_4.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\">do pliku</p></body></html>"))
+        self.pushButton_5.setText(_translate("MainWindow", " kopia "))
+        self.label_5.setText(_translate("MainWindow", " do pliku "))
+        self.pushButton_6.setText(_translate("MainWindow", " puste foldery "))
+        self.label_6.setText(_translate("MainWindow", " do pliku "))
+        self.pushButton_7.setText(_translate("MainWindow", " 7 "))
+        self.label_7.setText(_translate("MainWindow", "      7 "))
+        self.pushButton_8.setText(_translate("MainWindow", " 8 "))
+        self.label_8.setText(_translate("MainWindow", "      8 "))
 
 
 if __name__ == "__main__":
