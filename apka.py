@@ -4,7 +4,7 @@ import przegladanie
 import os
 import pandas as pd
 import znajdz_puste_foldery
-
+import usun_z_pliku
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -98,21 +98,21 @@ class Ui_MainWindow(object):
                                         "")
         self.pushButton_4.setObjectName("pushButton_4")
 
-        self.label_4 = QtWidgets.QLabel(self.centralwidget)
-        self.label_4.setGeometry(QtCore.QRect(40, 520, 84, 35))
-        self.label_4.setStyleSheet("QLabel{\n"
+        self.pushButton_4_4 = QtWidgets.QPushButton(self.centralwidget, clicked=lambda: self.usun_duplikaty())
+        self.pushButton_4_4.setGeometry(QtCore.QRect(40, 520, 84, 35))
+        self.pushButton_4_4.setStyleSheet("QPushButton{\n"
                                    "alignment: center;\n"
                                    "font: 75 8pt \"MS Shell Dlg 2\";\n"
                                    "background-color: rgb(75, 255, 249);\n"
                                    "font-size: 18px;\n"
                                    "}\n"
-                                   "QLabel:hover{\n"
+                                   "QPushButton:hover{\n"
                                    "background-color: rgb(255, 25, 29);\n"
                                    "border: 2px solid rgb(255,0,0);\n"
                                    "font-size: 20px;\n"
                                    "}\n"
                                    "")
-        self.label_4.setObjectName("label_4")
+        self.pushButton_4_4.setObjectName("label_4")
 
         self.pushButton_5 = QtWidgets.QPushButton(self.centralwidget, clicked=lambda: self.kopia_w_nazwie(self.label.text()))
         self.pushButton_5.setGeometry(QtCore.QRect(129, 480, 84, 35))
@@ -130,21 +130,21 @@ class Ui_MainWindow(object):
                                         "")
         self.pushButton_5.setObjectName("pushButton_5")
 
-        self.label_5 = QtWidgets.QLabel(self.centralwidget)
-        self.label_5.setGeometry(QtCore.QRect(129, 520, 84, 35))
-        self.label_5.setStyleSheet("QLabel{\n"
+        self.pushButton_5_5 = QtWidgets.QPushButton(self.centralwidget, clicked=lambda: self.usun_elemety_z_kopia_w_nazwie())
+        self.pushButton_5_5.setGeometry(QtCore.QRect(129, 520, 84, 35))
+        self.pushButton_5_5.setStyleSheet("QPushButton{\n"
                                    # "    text-decoration: underline;\n"
                                    "    font: 75 8pt \"MS Shell Dlg 2\";\n"
                                    "background-color: rgb(75, 255, 249);\n"
                                    "font-size: 18px;\n"
                                    "}\n"
-                                   "QLabel:hover{\n"
+                                   "QPushButton:hover{\n"
                                    "background-color: rgb(255, 25, 29);\n"
                                    "border: 2px solid rgb(255,0,0);\n"
                                    "font-size: 20px;\n"
                                    "}\n"
                                    "")
-        self.label_5.setObjectName("label_5")
+        self.pushButton_5_5.setObjectName("label_5")
 
         self.pushButton_6 = QtWidgets.QPushButton(self.centralwidget,
                                                   clicked= lambda: self.puste_foldery(self.label.text()))
@@ -163,21 +163,21 @@ class Ui_MainWindow(object):
                                         "")
         self.pushButton_6.setObjectName("pushButton_6")
 
-        self.label_6 = QtWidgets.QLabel(self.centralwidget)
-        self.label_6.setGeometry(QtCore.QRect(218, 520, 84, 35))
-        self.label_6.setStyleSheet("QLabel{\n"
+        self.pushButton_6_6 = QtWidgets.QPushButton(self.centralwidget, clicked=lambda: self.usun_puste_foldery())
+        self.pushButton_6_6.setGeometry(QtCore.QRect(218, 520, 84, 35))
+        self.pushButton_6_6.setStyleSheet("QPushButton{\n"
                                    "    text-decoration: underline;\n"
                                    "    font: 75 8pt \"MS Shell Dlg 2\";\n"
                                    "background-color: rgb(75, 255, 249);\n"
                                    "font-size: 18px;\n"
                                    "}\n"
-                                   "QLabel:hover{\n"
+                                   "QPushButton:hover{\n"
                                    "background-color: rgb(255, 25, 29);\n"
                                    "border: 2px solid rgb(255,0,0);\n"
                                    "font-size: 20px;\n"
                                    "}\n"
                                    "")
-        self.label_6.setObjectName("label_6")
+        self.pushButton_6_6.setObjectName("label_6")
 
         self.pushButton_7 = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_7.setGeometry(QtCore.QRect(307, 480, 84, 35))
@@ -368,7 +368,6 @@ class Ui_MainWindow(object):
     def gdzie_jestem(self, sciezka = os.getcwd()):
         return sciezka
 
-
     def przejdz_do_folderu(self,pressed ):
         if os.path.isdir( self.comboBox.currentText() ) and pressed == '.\\':
             folder = os.path.abspath(pressed)
@@ -400,12 +399,15 @@ class Ui_MainWindow(object):
         # self.textBrowser.setText(' duplikaty do pliku ')
 
     def kopia_w_nazwie(self,pressed):
-        print( f'pliki z - kopia w nazwie ')
-        print( pressed )
+        # print( f'pliki z - kopia w nazwie ')
+        # print( pressed )
         przegladanie.szukaj_kopia(pressed)
 
     def kopia_do_pliku(self):
         print(f'pliki z - kopia w nazwie do pliku ')
+
+    def funkcja_na_probe(self,pressed):
+        print( f'jestem funkcja na probe {pressed}')
 
     def puste_foldery(self, pressed):
         lista_pustych_folderow = znajdz_puste_foldery.folder(pressed)
@@ -413,6 +415,21 @@ class Ui_MainWindow(object):
         # DORABIANIE SKASOWANIA PLIKU puste_foldery.txt jeśli istnieje
         print( lista_pustych_folderow)
         print( f'puste foldery znajdz_puste_foldery.folder(pressed){pressed}')
+
+    def usun_duplikaty(self):
+        print( f'funkcja usuwa duplikaty znalezione i pobiera info z jakiegos pliku')
+        # funckcja po znalezieniu duplikatow usuwa je
+        # usun_z_pliku.usuwanie(plik)  # DO SPRAWDZENIA
+
+    def usun_puste_foldery(self):
+        plik = 'foldery_puste.txt'
+        print( f'funkcja ma usunac puste foldery, pobiera dane z pliku {plik}')
+        # usun_z_pliku.usuwanie(plik)  # DO SPRAWDZENIA
+
+    def usun_elemety_z_kopia_w_nazwie(self):
+        plik = 'obiekty_z_kopia_w_nazwie.txt'
+        print( f'funkcja ma usunac pliki lub foldery z kopia w nazwie, pobiera dane z {plik}')
+        # usun_z_pliku.usuwanie(plik)  # DO SPRAWDZENIA
 
     def lcd1(self,sciezka):
         print( przegladanie.policz_foldery( sciezka ) )
@@ -436,11 +453,11 @@ class Ui_MainWindow(object):
         self.comboBox_dysk.addItems(przegladanie.get_disks())
         self.pushButton_dysk.setText(_translate("MainWindow", "dysk"))
         self.pushButton_4.setText(_translate("MainWindow", "duplikaty"))
-        self.label_4.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\">do pliku</p></body></html>"))
+        self.pushButton_4_4.setText(_translate("MainWindow", "skasuj dup"))
         self.pushButton_5.setText(_translate("MainWindow", " kopia "))
-        self.label_5.setText(_translate("MainWindow", " do pliku "))
+        self.pushButton_5_5.setText(_translate("MainWindow", " sk kopie "))
         self.pushButton_6.setText(_translate("MainWindow", " puste foldery "))
-        self.label_6.setText(_translate("MainWindow", " do pliku "))
+        self.pushButton_6_6.setText(_translate("MainWindow", "sk puste"))
         self.pushButton_7.setText(_translate("MainWindow", " 7 "))
         self.label_7.setText(_translate("MainWindow", "      7 "))
         self.pushButton_8.setText(_translate("MainWindow", " 8 "))

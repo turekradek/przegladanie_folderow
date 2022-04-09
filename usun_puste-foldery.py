@@ -1,13 +1,13 @@
 import os
-def usuwanie_pustych_folderow():
+def usuwanie_pustych_folderow( plik ):
     gdzie = os.getcwd()
     lista = os.listdir(gdzie)
     lista_pustych_folderow = []
-    if 'foldery_puste.txt' not in lista:
-        print( 'plik nie istnieje ')
+    if plik not in lista:
+        print( f'{plik} nie istnieje ')
     else:
-        print( f' plik istnieje :)')
-        with open('foldery_puste.txt','r') as puste_foldery:
+        print( f'{plik}  istnieje :)')
+        with open(plik,'r') as puste_foldery:
             # sciezki = [ linia.strip() for linia in puste_foldery ]
             for linia in puste_foldery:
                 linia = linia.strip()
@@ -15,4 +15,4 @@ def usuwanie_pustych_folderow():
 
 
 
-usuwanie_pustych_folderow()
+# usuwanie_pustych_folderow()
