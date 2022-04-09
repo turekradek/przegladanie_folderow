@@ -425,7 +425,7 @@ class Ui_MainWindow(object):
         plik = 'foldery_puste.txt'
         print( f'funkcja ma usunac puste foldery, pobiera dane z pliku {plik}')
         usun_z_pliku.usuwanie(plik)  # DO SPRAWDZENIA
-
+    # DZIAŁA W BRANCH usuwanie pustych folderow
     def usun_elemety_z_kopia_w_nazwie(self):
         plik = 'obiekty_z_kopia_w_nazwie.txt'
         print( f'funkcja ma usunac pliki lub foldery z kopia w nazwie, pobiera dane z {plik}')
