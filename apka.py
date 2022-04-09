@@ -424,12 +424,12 @@ class Ui_MainWindow(object):
     def usun_puste_foldery(self):
         plik = 'foldery_puste.txt'
         print( f'funkcja ma usunac puste foldery, pobiera dane z pliku {plik}')
-        # usun_z_pliku.usuwanie(plik)  # DO SPRAWDZENIA
+        usun_z_pliku.usuwanie(plik)  # DO SPRAWDZENIA
 
     def usun_elemety_z_kopia_w_nazwie(self):
         plik = 'obiekty_z_kopia_w_nazwie.txt'
         print( f'funkcja ma usunac pliki lub foldery z kopia w nazwie, pobiera dane z {plik}')
-        # usun_z_pliku.usuwanie(plik)  # DO SPRAWDZENIA
+        usun_z_pliku.usuwanie(plik)  # DO SPRAWDZENIA
 
     def lcd1(self,sciezka):
         print( przegladanie.policz_foldery( sciezka ) )
