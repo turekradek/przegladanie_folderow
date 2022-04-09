@@ -98,7 +98,8 @@ class Ui_MainWindow(object):
                                         "")
         self.pushButton_4.setObjectName("pushButton_4")
 
-        self.pushButton_4_4 = QtWidgets.QPushButton(self.centralwidget, clicked=lambda: self.usun_duplikaty())
+        self.pushButton_4_4 = QtWidgets.QPushButton(self.centralwidget,
+                                                    clicked=lambda: self.usun_duplikaty())
         self.pushButton_4_4.setGeometry(QtCore.QRect(40, 520, 84, 35))
         self.pushButton_4_4.setStyleSheet("QPushButton{\n"
                                    "alignment: center;\n"
@@ -114,7 +115,8 @@ class Ui_MainWindow(object):
                                    "")
         self.pushButton_4_4.setObjectName("label_4")
 
-        self.pushButton_5 = QtWidgets.QPushButton(self.centralwidget, clicked=lambda: self.kopia_w_nazwie(self.label.text()))
+        self.pushButton_5 = QtWidgets.QPushButton(self.centralwidget,
+                                                  clicked=lambda: self.kopia_w_nazwie(self.label.text()))
         self.pushButton_5.setGeometry(QtCore.QRect(129, 480, 84, 35))
         self.pushButton_5.setStyleSheet("QPushButton{\n"
                                         "    text-decoration: underline;\n"
@@ -130,7 +132,8 @@ class Ui_MainWindow(object):
                                         "")
         self.pushButton_5.setObjectName("pushButton_5")
 
-        self.pushButton_5_5 = QtWidgets.QPushButton(self.centralwidget, clicked=lambda: self.usun_elemety_z_kopia_w_nazwie())
+        self.pushButton_5_5 = QtWidgets.QPushButton(self.centralwidget,
+                                                    clicked=lambda: self.usun_elemety_z_kopia_w_nazwie())
         self.pushButton_5_5.setGeometry(QtCore.QRect(129, 520, 84, 35))
         self.pushButton_5_5.setStyleSheet("QPushButton{\n"
                                    # "    text-decoration: underline;\n"
@@ -163,7 +166,8 @@ class Ui_MainWindow(object):
                                         "")
         self.pushButton_6.setObjectName("pushButton_6")
 
-        self.pushButton_6_6 = QtWidgets.QPushButton(self.centralwidget, clicked=lambda: self.usun_puste_foldery())
+        self.pushButton_6_6 = QtWidgets.QPushButton(self.centralwidget,
+                                                    clicked=lambda: self.usun_puste_foldery())
         self.pushButton_6_6.setGeometry(QtCore.QRect(218, 520, 84, 35))
         self.pushButton_6_6.setStyleSheet("QPushButton{\n"
                                    "    text-decoration: underline;\n"
@@ -396,11 +400,9 @@ class Ui_MainWindow(object):
 
     def duplikaty_do_pliku(self):
         pass
-        # self.textBrowser.setText(' duplikaty do pliku ')
+
 
     def kopia_w_nazwie(self,pressed):
-        # print( f'pliki z - kopia w nazwie ')
-        # print( pressed )
         przegladanie.szukaj_kopia(pressed)
 
     def kopia_do_pliku(self):
@@ -410,11 +412,10 @@ class Ui_MainWindow(object):
         print( f'jestem funkcja na probe {pressed}')
 
     def puste_foldery(self, pressed):
-        lista_pustych_folderow = znajdz_puste_foldery.folder(pressed)
+        znajdz_puste_foldery.folder(pressed)
         self.textBrowser.setText('ma pokazac puste foldery najlepiej z pliku puste_foldery.txt')
         # DORABIANIE SKASOWANIA PLIKU puste_foldery.txt jeśli istnieje
-        print( lista_pustych_folderow)
-        print( f'puste foldery znajdz_puste_foldery.folder(pressed){pressed}')
+
 
     def usun_duplikaty(self):
         print( f'funkcja usuwa duplikaty znalezione i pobiera info z jakiegos pliku')
@@ -423,12 +424,11 @@ class Ui_MainWindow(object):
 
     def usun_puste_foldery(self):
         plik = 'foldery_puste.txt'
-        print( f'funkcja ma usunac puste foldery, pobiera dane z pliku {plik}')
         usun_z_pliku.usuwanie(plik)  # DO SPRAWDZENIA
+
     # DZIAŁA W BRANCH usuwanie pustych folderow
     def usun_elemety_z_kopia_w_nazwie(self):
-        plik = 'obiekty_z_kopia_w_nazwie.txt'
-        print( f'funkcja ma usunac pliki lub foldery z kopia w nazwie, pobiera dane z {plik}')
+        plik = 'foldery_kopia.txt'
         usun_z_pliku.usuwanie(plik)  # DO SPRAWDZENIA
 
     def lcd1(self,sciezka):

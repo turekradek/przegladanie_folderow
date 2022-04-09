@@ -1,5 +1,5 @@
 import os
-import apka
+
 def folder( sciezka , gdzie_jestem = os.getcwd()):
     obiekty = os.listdir(sciezka)
 
@@ -30,6 +30,20 @@ def folder( sciezka , gdzie_jestem = os.getcwd()):
         #         zapis_do_pliku('foldery.txt',sciezka_obiektu)
         #         folder(sciezka_obiektu)
 
+def foldery_kopia( sciezka , gdzie_jestem = os.getcwd()):
+    obiekty = os.listdir(sciezka)
+    for obiekt in obiekty:
+        sciezka_obiektu = os.path.join(sciezka,obiekt)
+        if os.path.isdir( sciezka_obiektu) == False:
+            if '— kopia' in sciezka_obiektu:
+                zapis_do_pliku('pliki_kopia.txt'  , gdzie_jestem , sciezka_obiektu)
+        elif os.path.isdir( sciezka_obiektu ):
+            if '— kopia' in sciezka_obiektu:
+                zapis_do_pliku('foldery_kopia.txt', gdzie_jestem , sciezka_obiektu)
+                foldery_kopia(sciezka_obiektu)
+            else:
+                foldery_kopia(sciezka_obiektu)
+
 def zapis_do_pliku(plik,gdzie_zapisac, tekst):
     plik = os.path.join(gdzie_zapisac,plik)
     file = open( plik, 'a')
@@ -37,8 +51,5 @@ def zapis_do_pliku(plik,gdzie_zapisac, tekst):
     file.close()
 
 
-
-# razem = folder( os.getcwd() )
-
 # print( ".\\")
-# folder('E:\!!!!__programowanie__\!!!___git_projekty\!portfolio\przegladanie_folderow')
+foldery_kopia('E:\!!!!__programowanie__\!!!___git_projekty\!portfolio\przegladanie_folderow')
