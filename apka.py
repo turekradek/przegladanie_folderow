@@ -9,7 +9,7 @@ import usun_z_pliku
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 600)
+        MainWindow.resize(800, 650)
 
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -148,6 +148,23 @@ class Ui_MainWindow(object):
                                    "}\n"
                                    "")
         self.pushButton_5_5.setObjectName("label_5")
+
+        self.pushButton_5_5_5 = QtWidgets.QPushButton(self.centralwidget,
+                                                    clicked=lambda: self.usun_pliki_z_kopia_w_nazwie())
+        self.pushButton_5_5_5.setGeometry(QtCore.QRect(129, 560, 84, 35))
+        self.pushButton_5_5_5.setStyleSheet("QPushButton{\n"
+                                          # "    text-decoration: underline;\n"
+                                          "    font: 75 8pt \"MS Shell Dlg 2\";\n"
+                                          "background-color: rgb(75, 255, 249);\n"
+                                          "font-size: 18px;\n"
+                                          "}\n"
+                                          "QPushButton:hover{\n"
+                                          "background-color: rgb(255, 25, 29);\n"
+                                          "border: 2px solid rgb(255,0,0);\n"
+                                          "font-size: 20px;\n"
+                                          "}\n"
+                                          "")
+        self.pushButton_5_5_5.setObjectName("label_5")
 
         self.pushButton_6 = QtWidgets.QPushButton(self.centralwidget,
                                                   clicked= lambda: self.puste_foldery(self.label.text()))
@@ -432,6 +449,12 @@ class Ui_MainWindow(object):
         plik = 'obiekty_z_kopia_w_nazwie.txt'
         usun_z_pliku.usuwanie_kopia(plik)  # DO SPRAWDZENIA
         self.textBrowser.setText('sprawdz w pliku obiekty_z_kopia_w_nazwie.txt \n jakie foldery znalazłem ')
+
+    def usun_pliki_z_kopia_w_nazwie(self):
+        plik = 'pliki_z_kopia_w_nazwie.txt'
+        usun_z_pliku.usuwanie_pliki_kopia(plik)  # DO SPRAWDZENIA
+        self.textBrowser.setText('najprawdopodobniej usunalem pliki z kopia w nazwie\nsprawdz w folderach')
+
     def lcd1(self,sciezka):
         print( przegladanie.policz_foldery( sciezka ) )
     def lcd2(self,sciezka):
@@ -456,9 +479,10 @@ class Ui_MainWindow(object):
         self.pushButton_4.setText(_translate("MainWindow", "_?_"))
         self.pushButton_4_4.setText(_translate("MainWindow", "_?_"))
         self.pushButton_5.setText(_translate("MainWindow", " kopia "))
-        self.pushButton_5_5.setText(_translate("MainWindow", " sk kopie "))
+        self.pushButton_5_5.setText(_translate("MainWindow", " sk k f "))
+        self.pushButton_5_5_5.setText(_translate("MainWindow", " sk k pl "))
         self.pushButton_6.setText(_translate("MainWindow", " puste foldery "))
-        self.pushButton_6_6.setText(_translate("MainWindow", "sk puste"))
+        self.pushButton_6_6.setText(_translate("MainWindow", "sk fold"))
         self.pushButton_7.setText(_translate("MainWindow", " 7 "))
         self.label_7.setText(_translate("MainWindow", "      7 "))
         self.pushButton_8.setText(_translate("MainWindow", " 8 "))

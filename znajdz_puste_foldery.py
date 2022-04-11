@@ -36,7 +36,7 @@ def foldery_kopia( sciezka , gdzie_jestem = os.getcwd()):
         sciezka_obiektu = os.path.join(sciezka,obiekt)
         if os.path.isdir( sciezka_obiektu) == False:
             if '— kopia' in sciezka_obiektu:
-                zapis_do_pliku('plik_z_kopia_w_nazwie.txt'  , gdzie_jestem , sciezka_obiektu)
+                zapis_do_pliku('pliki_z_kopia_w_nazwie.txt'  , gdzie_jestem , sciezka_obiektu)
         elif os.path.isdir( sciezka_obiektu ):
             if '— kopia' in sciezka_obiektu:
                 zapis_do_pliku('folder_z_kopia_w_nazwie.txt', gdzie_jestem , sciezka_obiektu)
