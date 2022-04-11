@@ -403,7 +403,8 @@ class Ui_MainWindow(object):
 
 
     def kopia_w_nazwie(self,pressed):
-        przegladanie.szukaj_kopia(pressed)
+        # przegladanie.szukaj_kopia(pressed)
+        znajdz_puste_foldery.foldery_kopia(pressed)
 
     def kopia_do_pliku(self):
         print(f'pliki z - kopia w nazwie do pliku ')
@@ -412,7 +413,7 @@ class Ui_MainWindow(object):
         print( f'jestem funkcja na probe {pressed}')
 
     def puste_foldery(self, pressed):
-        znajdz_puste_foldery.folder(pressed)
+        znajdz_puste_foldery.foldery_puste(pressed)
         self.textBrowser.setText('ma pokazac puste foldery najlepiej z pliku puste_foldery.txt')
         # DORABIANIE SKASOWANIA PLIKU puste_foldery.txt jeśli istnieje
 
@@ -428,9 +429,9 @@ class Ui_MainWindow(object):
 
     # DZIAŁA W BRANCH usuwanie pustych folderow
     def usun_elemety_z_kopia_w_nazwie(self):
-        plik = 'foldery_kopia.txt'
-        usun_z_pliku.usuwanie(plik)  # DO SPRAWDZENIA
-
+        plik = 'obiekty_z_kopia_w_nazwie.txt'
+        usun_z_pliku.usuwanie_kopia(plik)  # DO SPRAWDZENIA
+        self.textBrowser.setText('sprawdz w pliku obiekty_z_kopia_w_nazwie.txt \n jakie foldery znalazłem ')
     def lcd1(self,sciezka):
         print( przegladanie.policz_foldery( sciezka ) )
     def lcd2(self,sciezka):
@@ -452,8 +453,8 @@ class Ui_MainWindow(object):
         self.lcdNumber_3.display( 0 )
         self.comboBox_dysk.addItems(przegladanie.get_disks())
         self.pushButton_dysk.setText(_translate("MainWindow", "dysk"))
-        self.pushButton_4.setText(_translate("MainWindow", "duplikaty"))
-        self.pushButton_4_4.setText(_translate("MainWindow", "skasuj dup"))
+        self.pushButton_4.setText(_translate("MainWindow", "_?_"))
+        self.pushButton_4_4.setText(_translate("MainWindow", "_?_"))
         self.pushButton_5.setText(_translate("MainWindow", " kopia "))
         self.pushButton_5_5.setText(_translate("MainWindow", " sk kopie "))
         self.pushButton_6.setText(_translate("MainWindow", " puste foldery "))

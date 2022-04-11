@@ -1,6 +1,6 @@
 import os
 
-def folder( sciezka ):
+def szukam_duplikatow( sciezka = os.getcwd() ):
 
     obiekty = os.listdir(sciezka)
     for obiekt in obiekty:
@@ -11,7 +11,7 @@ def folder( sciezka ):
             zapis_do_pliku('foldery_puste.txt',sciezka_obiektu )
         elif os.path.isdir(sciezka_obiektu) :
             zapis_do_pliku('foldery.txt',sciezka_obiektu)
-            folder(sciezka_obiektu)
+            szukam_duplikatow(sciezka_obiektu)
 
 
 def zapis_do_pliku(plik, tekst):
@@ -21,18 +21,7 @@ def zapis_do_pliku(plik, tekst):
 
 
 
-razem = folder( os.getcwd() )
+# razem = szukam_duplikatow( os.getcwd() )
 
-with open('foldery.txt','r') as foldery, open('pliki.txt','r') as pliki, open('foldery_puste.txt','r') as foldery_puste, open('duplikaty.txt','w') as duplikaty:
-    fold = foldery.readlines()
-    fold_puste = foldery_puste.readlines()
-    pli = pliki.readlines()
-
-for el in fold:
-    print( el )
-
-# filename, file_extension = os.path.splitext('/path/to/somefile.ext')
-
-# — kopia.
 
 

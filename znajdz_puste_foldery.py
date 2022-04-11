@@ -1,6 +1,6 @@
 import os
 
-def folder( sciezka , gdzie_jestem = os.getcwd()):
+def foldery_puste( sciezka , gdzie_jestem = os.getcwd()):
     obiekty = os.listdir(sciezka)
 
     for obiekt in obiekty:
@@ -20,7 +20,7 @@ def folder( sciezka , gdzie_jestem = os.getcwd()):
             zapis_do_pliku('foldery_puste.txt',gdzie_jestem ,sciezka_obiektu )
 
         elif os.path.isdir(sciezka_obiektu) :
-            folder(sciezka_obiektu)
+            foldery_puste(sciezka_obiektu)
         # KOD PONIŻEJ SZUKA TYLKO FOLDERÓW KTÓRE W NAZWIE MAJĄ -kopia  I ZAPISUJE JE DO PLIKU
         # elif os.path.isdir(sciezka_obiektu) :
         #     if '— kopia' in sciezka_obiektu:
@@ -36,10 +36,10 @@ def foldery_kopia( sciezka , gdzie_jestem = os.getcwd()):
         sciezka_obiektu = os.path.join(sciezka,obiekt)
         if os.path.isdir( sciezka_obiektu) == False:
             if '— kopia' in sciezka_obiektu:
-                zapis_do_pliku('pliki_kopia.txt'  , gdzie_jestem , sciezka_obiektu)
+                zapis_do_pliku('plik_z_kopia_w_nazwie.txt'  , gdzie_jestem , sciezka_obiektu)
         elif os.path.isdir( sciezka_obiektu ):
             if '— kopia' in sciezka_obiektu:
-                zapis_do_pliku('foldery_kopia.txt', gdzie_jestem , sciezka_obiektu)
+                zapis_do_pliku('folder_z_kopia_w_nazwie.txt', gdzie_jestem , sciezka_obiektu)
                 foldery_kopia(sciezka_obiektu)
             else:
                 foldery_kopia(sciezka_obiektu)
@@ -52,4 +52,4 @@ def zapis_do_pliku(plik,gdzie_zapisac, tekst):
 
 
 # print( ".\\")
-foldery_kopia('E:\!!!!__programowanie__\!!!___git_projekty\!portfolio\przegladanie_folderow')
+# foldery_kopia('E:\!!!!__programowanie__\!!!___git_projekty\!portfolio\przegladanie_folderow')
