@@ -88,12 +88,12 @@ class Ui_MainWindow(object):
                                         "    text-decoration: underline;\n"
                                         "    font: 75 8pt \"MS Shell Dlg 2\";\n"
                                         "background-color: rgb(75, 255, 249);\n"
-                                        "font-size: 18px;\n"
+                                        "font-size: 12px;\n"
                                         "}\n"
                                         "QPushButton:hover{\n"
                                         "background-color: rgb(255, 25, 29);\n"
                                         "border: 2px solid rgb(255,0,0);\n"
-                                        "font-size: 20px;\n"
+                                        "font-size: 12px;\n"
                                         "}\n"
                                         "")
         self.pushButton_4.setObjectName("pushButton_4")
@@ -105,12 +105,12 @@ class Ui_MainWindow(object):
                                    "alignment: center;\n"
                                    "font: 75 8pt \"MS Shell Dlg 2\";\n"
                                    "background-color: rgb(75, 255, 249);\n"
-                                   "font-size: 18px;\n"
+                                   "font-size: 12px;\n"
                                    "}\n"
                                    "QPushButton:hover{\n"
                                    "background-color: rgb(255, 25, 29);\n"
                                    "border: 2px solid rgb(255,0,0);\n"
-                                   "font-size: 20px;\n"
+                                   "font-size: 12px;\n"
                                    "}\n"
                                    "")
         self.pushButton_4_4.setObjectName("label_4")
@@ -122,12 +122,12 @@ class Ui_MainWindow(object):
                                         "    text-decoration: underline;\n"
                                         "    font: 75 8pt \"MS Shell Dlg 2\";\n"
                                         "background-color: rgb(75, 255, 249);\n"
-                                        "font-size: 18px;\n"
+                                        "font-size: 12px;\n"
                                         "}\n"
                                         "QPushButton:hover{\n"
                                         "background-color: rgb(255, 25, 29);\n"
                                         "border: 2px solid rgb(255,0,0);\n"
-                                        "font-size: 20px;\n"
+                                        "font-size: 12px;\n"
                                         "}\n"
                                         "")
         self.pushButton_5.setObjectName("pushButton_5")
@@ -139,12 +139,12 @@ class Ui_MainWindow(object):
                                    # "    text-decoration: underline;\n"
                                    "    font: 75 8pt \"MS Shell Dlg 2\";\n"
                                    "background-color: rgb(75, 255, 249);\n"
-                                   "font-size: 18px;\n"
+                                   "font-size: 12px;\n"
                                    "}\n"
                                    "QPushButton:hover{\n"
                                    "background-color: rgb(255, 25, 29);\n"
                                    "border: 2px solid rgb(255,0,0);\n"
-                                   "font-size: 20px;\n"
+                                   "font-size: 12px;\n"
                                    "}\n"
                                    "")
         self.pushButton_5_5.setObjectName("label_5")
@@ -156,12 +156,12 @@ class Ui_MainWindow(object):
                                           # "    text-decoration: underline;\n"
                                           "    font: 75 8pt \"MS Shell Dlg 2\";\n"
                                           "background-color: rgb(75, 255, 249);\n"
-                                          "font-size: 18px;\n"
+                                          "font-size: 12px;\n"
                                           "}\n"
                                           "QPushButton:hover{\n"
                                           "background-color: rgb(255, 25, 29);\n"
                                           "border: 2px solid rgb(255,0,0);\n"
-                                          "font-size: 20px;\n"
+                                          "font-size: 12px;\n"
                                           "}\n"
                                           "")
         self.pushButton_5_5_5.setObjectName("label_5")
@@ -190,12 +190,12 @@ class Ui_MainWindow(object):
                                    "    text-decoration: underline;\n"
                                    "    font: 75 8pt \"MS Shell Dlg 2\";\n"
                                    "background-color: rgb(75, 255, 249);\n"
-                                   "font-size: 18px;\n"
+                                   "font-size: 12px;\n"
                                    "}\n"
                                    "QPushButton:hover{\n"
                                    "background-color: rgb(255, 25, 29);\n"
                                    "border: 2px solid rgb(255,0,0);\n"
-                                   "font-size: 20px;\n"
+                                   "font-size: 12px;\n"
                                    "}\n"
                                    "")
         self.pushButton_6_6.setObjectName("label_6")
@@ -476,13 +476,13 @@ class Ui_MainWindow(object):
         self.lcdNumber_3.display( 0 )
         self.comboBox_dysk.addItems(przegladanie.get_disks())
         self.pushButton_dysk.setText(_translate("MainWindow", "dysk"))
-        self.pushButton_4.setText(_translate("MainWindow", "_?_"))
-        self.pushButton_4_4.setText(_translate("MainWindow", "_?_"))
-        self.pushButton_5.setText(_translate("MainWindow", " kopia "))
-        self.pushButton_5_5.setText(_translate("MainWindow", " sk k f "))
-        self.pushButton_5_5_5.setText(_translate("MainWindow", " sk k pl "))
+        self.pushButton_4.setText(_translate("MainWindow", "duplikaty..."))
+        self.pushButton_4_4.setText(_translate("MainWindow", "duplikaty.."))
+        self.pushButton_5.setText(_translate("MainWindow", "kopia w\nnazwie"))
+        self.pushButton_5_5.setText(_translate("MainWindow", "skasuj foldery\nkopia w nazwie"))
+        self.pushButton_5_5_5.setText(_translate("MainWindow", "skasuj pliki\nkopia w nazwie"))
         self.pushButton_6.setText(_translate("MainWindow", " puste foldery "))
-        self.pushButton_6_6.setText(_translate("MainWindow", "sk fold"))
+        self.pushButton_6_6.setText(_translate("MainWindow", "skasuj puste\nfoldery"))
         self.pushButton_7.setText(_translate("MainWindow", " 7 "))
         self.label_7.setText(_translate("MainWindow", "      7 "))
         self.pushButton_8.setText(_translate("MainWindow", " 8 "))
