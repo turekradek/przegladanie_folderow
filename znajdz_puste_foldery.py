@@ -50,6 +50,11 @@ def zapis_do_pliku(plik,gdzie_zapisac, tekst):
     file.write(tekst + '\n')
     file.close()
 
-
+def lokalizacja_apki():
+    return os.getcwd()
+lokalizacja_aplikacji = lokalizacja_apki()
+# def przekazuje_lokazacje_aplikacji(tekst):
+#     return lokalizacja_aplikacji
+# print( przekazuje_lokazacje_aplikacji(lokalizacja_aplikacji))
 # print( ".\\")
 # foldery_kopia('E:\!!!!__programowanie__\!!!___git_projekty\!portfolio\przegladanie_folderow')
