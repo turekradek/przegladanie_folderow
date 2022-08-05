@@ -430,6 +430,8 @@ class Ui_MainWindow(object):
         print( f'jestem funkcja na probe {pressed}')
 
     def puste_foldery(self, pressed):
+        gdzie_jestem = os.getcwd()
+        print( gdzie_jestem )
         znajdz_puste_foldery.foldery_puste(pressed)
         self.textBrowser.setText('ma pokazac puste foldery najlepiej z pliku puste_foldery.txt')
         # DORABIANIE SKASOWANIA PLIKU puste_foldery.txt jeśli istnieje
